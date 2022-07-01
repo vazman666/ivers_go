@@ -16,7 +16,7 @@ func Email(file string) {
 		//serverAddr = "smtp.mail.ru"
 		serverAddr = "smtp.jino.ru"
 		//password   = "rjV,brjhv1"
-		password = "rbhgbxb1"
+		password = "rjV,brjhv1"
 		//emailAddr  = "japautozap@mail.ru"
 		emailAddr = "vazman@vazman.ru"
 		//portNumber = 465

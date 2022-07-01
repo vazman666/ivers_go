@@ -14,18 +14,20 @@ import (
 
 func Parse(token string) (models.Parse, error) {
 	type Par struct {
+		Page int `json:"page"`
 		Mode string `json:"mode"`
 	}
 	type m struct {
 		Method string `json:"method"`
 		Id     int    `json:"id"`
 		Params []struct {
+			Page int `json:"page"`
 			Mode string `json:"mode"`
 		} `json:"params"`
 	}
 
 	message := m{Method: "dataAction", Id: 1}
-	message.Params = append(message.Params, Par{Mode: "products"})
+	message.Params = append(message.Params, Par{Page:0, Mode: "products"})
 	bytesRepresentation, err := json.Marshal(message)
 	if err != nil {
 		return models.Parse{}, fmt.Errorf("Ошибка Marshal %v", err)

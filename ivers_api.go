@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"time"
 	"ivers_api/pkg"
 	"log"
+	
 )
 
 //"bytes"
@@ -13,11 +14,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	//fmt.Printf("token=%v\n",token)
 	c, err := pkg.Parse(token) //парсим сайт, получаем список последних заказов
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	//fmt.Printf("c=%v\n",c)
 	db, err := pkg.SqlLogin() //Открываем базу
 	if err != nil {
 		log.Fatal(err)
@@ -36,8 +38,8 @@ func main() {
 		log.Fatal(err)
 	}
 	if len(shippedunshipped) != 0 {
-		fmt.Printf("Пауза 10 мин\n")
-		//time.Sleep(10 * time.Minute)
+		//fmt.Printf("Пауза 10 мин\n")
+		time.Sleep(10 * time.Minute)
 		shippedunshipped, err := pkg.Shippedunshipped(c, unshipped, token)
 		if err != nil {
 			log.Fatal(err)

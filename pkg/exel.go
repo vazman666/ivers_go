@@ -43,7 +43,7 @@ func Exel(data []models.Sql) {
 	}
 	wb := xlsx.NewFile() //создаём новый экскиз экселя
 
-	sheetTest, err := wb.AddSheet("test") //добавляем страничку
+	sheetTest, err := wb.AddSheet("Sheet") //добавляем страничку
 	if err != nil {
 		panic(err)
 	}
@@ -88,7 +88,7 @@ func Exel(data []models.Sql) {
 		_ = row1.WriteStruct(&value, -1) //и вставляе в эту строку строку из прайс
 		if strings.Contains(strings.ToLower(value.Remark), "пул") ||
 			strings.Contains(strings.ToLower(value.Remark), "pul") ||
-			strings.ToLower(value.Remark)="r"{
+			strings.ToLower(value.Remark)=="r"{
 			pul = append(pul, last)
 		}
 
